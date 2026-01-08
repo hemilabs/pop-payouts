@@ -16,9 +16,10 @@ PoPPayoutsV2 implements a dynamic reward algorithm that:
 - npm or yarn
 
 ## Installation
+(note, tests are written for hardhat v2, installation of 2.26.3 used in example below)
 
 ```bash
-npm install
+npm install hardhat@2.26.3
 ```
 
 ## Build
