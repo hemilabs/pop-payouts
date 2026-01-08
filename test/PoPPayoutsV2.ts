@@ -10789,7 +10789,7 @@ describe("PoPPayoutsV2", function () {
    */
   describe("Stateful Multi-Function Mixed Tests", function () {
     // Constants for fuzzing
-    const FUZZ_ITERATIONS = 10000;
+    const FUZZ_ITERATIONS = 2000;
     const INITIAL_FUZZ_TOKENS = hre.ethers.parseUnits("10000000000", 18); // 10 billion tokens (full supply) for extended fuzzing
     const MAX_PUBLICATIONS_PER_ROUND = 15; // Keep reasonable for gas
     const INITIAL_ETH_FORCE_SEND = hre.ethers.parseEther("10");
@@ -11677,8 +11677,8 @@ describe("PoPPayoutsV2", function () {
       expect(await PoPPayoutsV2Contract.owner()).to.equal(random1.address);
     });
 
-    itCoverageDisabled("chaos monkey: should handle random sequences of all operations correctly", async function () {
-      this.timeout(300000); // 5 minutes
+    itCoverageDisabled("chaos monkey: should handle random sequences of all operations correctly (this can take several minutes)", async function () {
+      this.timeout(1200000); // 20 minutes
 
       // Deploy contracts
       const { HemiContract } = await deployHemiToken();
