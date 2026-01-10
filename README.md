@@ -12,36 +12,36 @@ PoPPayoutsV2 implements a dynamic reward algorithm that:
 
 ## Prerequisites
 
-- Node.js >= 18
-- npm or yarn
+- Node.js v22 or newer.
+- pnpm v10 or newer.
 
 ## Installation
 (note, tests are written for hardhat v2, installation of 2.26.3 used in example below)
 
 ```bash
-npm install hardhat@2.26.3
+pnpm install
 ```
 
 ## Build
 
 ```bash
-npx hardhat compile
+pnpm hardhat compile
 ```
 
 ## Test
 
 ```bash
 # Run all tests
-npx hardhat test
+pnpm hardhat test
 
 # Run with gas reporting
-REPORT_GAS=true npx hardhat test
+REPORT_GAS=true pnpm hardhat test
 
 # Run specific test by pattern
-npx hardhat test --grep "should calculate reward"
+pnpm hardhat test --grep "should calculate reward"
 
 # Run test coverage report
-npx hardhat coverage
+pnpm hardhat coverage
 ```
 
 ## Deployment
@@ -122,7 +122,7 @@ Since PoPPayoutsV2 uses an `initialize()` pattern with no constructor arguments,
 3. **Preview the deployment** (optional):
 
    ```bash
-   npx hardhat run scripts/compute-address.ts
+   pnpm hardhat run scripts/compute-address.ts
    ```
 
    This shows the expected deployment addresses based on the salt and bytecode.
@@ -131,19 +131,19 @@ Since PoPPayoutsV2 uses an `initialize()` pattern with no constructor arguments,
 
    ```bash
    # Deploy to Hemi Mainnet
-   npx hardhat ignition deploy ignition/modules/PoPPayoutsV2.ts \
+   pnpm hardhat ignition deploy ignition/modules/PoPPayoutsV2.ts \
      --network hemi \
      --parameters ignition/parameters/hemi.json \
      --strategy create2
 
    # Deploy to Hemi Testnet
-   npx hardhat ignition deploy ignition/modules/PoPPayoutsV2.ts \
+   pnpm hardhat ignition deploy ignition/modules/PoPPayoutsV2.ts \
      --network hemiTestnet \
      --parameters ignition/parameters/hemiTestnet.json \
      --strategy create2
 
    # Deploy to localhost (for testing)
-   npx hardhat ignition deploy ignition/modules/PoPPayoutsV2.ts \
+   pnpm hardhat ignition deploy ignition/modules/PoPPayoutsV2.ts \
      --network localhost \
      --parameters ignition/parameters/localhost.json \
      --strategy create2
@@ -177,7 +177,7 @@ The salt is automatically converted to bytes32 using keccak256 and shared betwee
 An alternative deployment script is available that uses Arachnid's deterministic-deployment-proxy directly:
 
 ```bash
-npx hardhat run scripts/deploy.ts --network hemi
+pnpm hardhat run scripts/deploy.ts --network hemi
 ```
 
 This script:
@@ -193,13 +193,13 @@ This script:
 Start a local Hardhat node:
 
 ```bash
-npx hardhat node
+pnpm hardhat node
 ```
 
 In another terminal, deploy:
 
 ```bash
-npx hardhat ignition deploy ignition/modules/PoPPayoutsV2.ts \
+pnpm hardhat ignition deploy ignition/modules/PoPPayoutsV2.ts \
   --network localhost \
   --parameters ignition/parameters/localhost.json \
   --strategy create2
